@@ -1,8 +1,8 @@
 * {
 	margin: 0;
 	padding: 0;
-	--widthImg: 500px;
-	--transitionSlide: 0.5s ;
+	--transitionSlide: 0.5s;
+	--colorBtn: rgb(25, 202, 247);
 }
 
 html {
@@ -10,11 +10,11 @@ html {
 }
 
 h1 {
+	margin: 1rem 1rem;
 	text-align: center;
 }
 
 img {
-	width: 100%;
 	vertical-align: middle;
 }
 
@@ -22,17 +22,27 @@ input {
 	display: none;
 }
 
+p {
+	width: 50rem;
+	font-size: 1.8rem;
+}
+
 label {
-	width: 1.2rem;
-	height: 1.2rem;
-	border-radius: 50%;
-	border: 0.125rem solid rgb(0, 0, 0);
-	background-color:rgb(102, 245, 255);
+	display: flex;
+	width: 2.8rem;
+	height: 2.8rem;
+	align-items: center;
+	justify-content: center;
 	cursor: pointer;
 }
 
-label:hover {
-	background-color: black;
+span {
+	width: 1.6rem;
+	height: 1.6rem;
+	border-radius: 50%;
+	border: 0.25rem solid var(--colorBtn);
+	background-color:var(--colorBtn);
+	transition: var(--transitionSlide);
 }
 
 .wrapper {
@@ -40,21 +50,20 @@ label:hover {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	margin: 10px auto;
-	max-width: var(--widthImg);
+	margin: 1rem auto;
+	max-width: 50rem;
 }
 
 .slider {
 	overflow: hidden;
-	position: relative;
 	display: flex;
 	width: 400%;
 	height: 100%;
-	/* border: 1px solid #000; */
 }
 
 .slide {
 	width: 25%;
+	text-align: center;
 }
 
 .container {
@@ -78,12 +87,9 @@ label:hover {
 	align-items: center;
 }
 
-p {
-	width: var(--widthImg);
-}
-
-.radio, label {
-	margin: 0 0.5rem;
+label:hover span {
+	border: 0.25rem solid black;
+	background-color: black;
 }
 
 #wrapper input:nth-of-type(1):checked~#slider,
@@ -91,56 +97,44 @@ p {
 	margin-left: 0%;
 	transition: var(--transitionSlide);
 }
+
 #wrapper input:nth-of-type(2):checked~#slider,
 #wrapper input:nth-of-type(2):checked~.container .title_wrapper {
 	margin-left: -100%;
 	transition: var(--transitionSlide);
 }
+
 #wrapper input:nth-of-type(3):checked~#slider,
 #wrapper input:nth-of-type(3):checked~.container .title_wrapper {
 	margin-left: -200%;
 	transition: var(--transitionSlide);
 }
+
 #wrapper input:nth-of-type(4):checked~#slider,
 #wrapper input:nth-of-type(4):checked~.container .title_wrapper {
 	margin-left: -300%;
 	transition: var(--transitionSlide);
 }
 
-#wrapper input:nth-of-type(1):checked~.container .radio_wrapper label:nth-of-type(1) {
-	background-color: black;
-}
-#wrapper input:nth-of-type(2):checked~.container .radio_wrapper label:nth-of-type(2) {
-	background-color: black;
-}
-#wrapper input:nth-of-type(3):checked~.container .radio_wrapper label:nth-of-type(3) {
-	background-color: black;
-}
-#wrapper input:nth-of-type(4):checked~.container .radio_wrapper label:nth-of-type(4) {
-	background-color: black;
+#wrapper input:nth-of-type(1):checked~.container .radio_wrapper label:nth-of-type(1):hover span,
+#wrapper input:nth-of-type(2):checked~.container .radio_wrapper label:nth-of-type(2):hover span, 
+#wrapper input:nth-of-type(3):checked~.container .radio_wrapper label:nth-of-type(3):hover span, 
+#wrapper input:nth-of-type(4):checked~.container .radio_wrapper label:nth-of-type(4):hover span {
+	border: 0.25rem solid black;
 }
 
-#wrapper input:nth-of-type(1):hover~.container .radio_wrapper label:nth-of-type(1) {
-	background-color: rgb(255, 23, 23);
-}
-#wrapper input:nth-of-type(2):hover~.container .radio_wrapper label:nth-of-type(2) {
-	background-color: rgb(255, 23, 23);
-}
-#wrapper input:nth-of-type(3):hover~.container .radio_wrapper label:nth-of-type(3) {
-	background-color: rgb(255, 23, 23);
-}
-#wrapper input:nth-of-type(4):hover~.container .radio_wrapper label:nth-of-type(4) {
-	background-color: rgb(255, 23, 23);
+#wrapper input:nth-of-type(1):checked~.container .radio_wrapper label:nth-of-type(1) span,
+#wrapper input:nth-of-type(2):checked~.container .radio_wrapper label:nth-of-type(2) span, 
+#wrapper input:nth-of-type(3):checked~.container .radio_wrapper label:nth-of-type(3) span, 
+#wrapper input:nth-of-type(4):checked~.container .radio_wrapper label:nth-of-type(4) span {
+	border: 0.25rem solid var(--colorBtn);
+	background-color: transparent;
 }
 
 @media (max-width: 767px) {
-	.wrapper {
-		width: 65%;
-	}
-	p {
+	.wrapper, img, p {
 		width: 65vw;
 	}
-	
 }
 
 @media (max-width: 480px) {
@@ -148,6 +142,12 @@ p {
 		flex-direction: column-reverse;
 		gap: 1rem;
 	}
+
+	p {
+		width: 65vw;
+		font-size: 1.6rem;
+	}
+
 	.radio_wrapper {
 		justify-content: center;
 	}	
