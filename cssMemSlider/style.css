@@ -43,6 +43,7 @@ span {
 	border: 0.25rem solid var(--colorBtn);
 	background-color:var(--colorBtn);
 	transition: var(--transitionSlide);
+	box-sizing: border-box;
 }
 
 .wrapper {
